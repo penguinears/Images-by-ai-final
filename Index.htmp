@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Imagesby.AI — Free Unrestricted AI Images, No Signup</title>
+
+    <meta name="description"
+          content="Imagesby.AI is a free, no signup, unrestricted AI image generator. Create unlimited AI images instantly.">
+
+    <meta name="keywords"
+          content="free ai images, no signup ai, unrestricted ai image generator, free ai image maker, unlimited ai images">
+
+    <link rel="canonical" href="https://imagesby.ai">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        body.light {
+            background-color: #fafafa;
+            color: #1a1a1a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 16px;
+            right: 16px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 999px;
+            padding: 0.6rem 0.8rem;
+            cursor: pointer;
+            color: #fff;
+            z-index: 1001;
+        }
+
+        body.light .theme-toggle {
+            background: #ffffff;
+            color: #1a1a1a;
+            border-color: #ddd;
+        }
+
+        .theme-toggle .fa-moon {
+            display: none;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #ffffff, #888888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body.light .header h1 {
+            background: linear-gradient(135deg, #111, #666);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            color: #888888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        body.light .header p {
+            color: #555;
+        }
+
+        .generator-section,
+        .results-section {
+            background: #111111;
+            border: 1px solid #333333;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        body.light .generator-section,
+        body.light .results-section {
+            background: #ffffff;
+            border-color: #dddddd;
+        }
+
+        .prompt-input,
+        .control-input {
+            width: 100%;
+            padding: 1rem;
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            color: #ffffff;
+        }
+
+        body.light .prompt-input,
+        body.light .control-input {
+            background: #f5f5f5;
+            color: #1a1a1a;
+            border-color: #dddddd;
+        }
+
+        .generate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: #4a9eff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .image-card {
+            background: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        body.light .image-card {
+            background: #ffffff;
+            border-color: #dddddd;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<button id="themeToggle" class="theme-toggle">
+    <i class="fa-solid fa-sun"></i>
+    <i class="fa-solid fa-moon"></i>
+</button>
+
+<div class="container">
+    <div class="header">
+        <h1>Imagesby.AI</h1>
+        <p>Create stunning images from text descriptions using advanced AI technology</p>
+    </div>
+
+    <div class="generator-section">
+        <textarea id="prompt" class="prompt-input"
+                  placeholder="Describe the image you want to generate..."></textarea>
+        <br><br>
+        <button id="generateBtn" class="generate-btn">Generate Images</button>
+    </div>
+
+    <div class="results-section">
+        <div id="results"></div>
+    </div>
+</div>
+
+<script>
+    const themeToggle = document.getElementById("themeToggle");
+    const sunIcon = themeToggle.querySelector(".fa-sun");
+    const moonIcon = themeToggle.querySelector(".fa-moon");
+
+    themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light");
+        const isLight = document.body.classList.contains("light");
+        sunIcon.style.display = isLight ? "none" : "inline";
+        moonIcon.style.display = isLight ? "inline" : "none";
+    });
+</script>
+
+</body>
+</html>
